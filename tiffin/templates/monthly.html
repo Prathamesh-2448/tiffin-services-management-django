@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %} Monthly {% endblock %}
+
+
+{% block style %}
+    td{
+      word-wrap: break-word;
+      }
+
+     @media print {
+            body * {
+                visibility: hidden;
+            }
+            #print-section, #print-section * {
+                visibility: visible;
+            }
+            #print-section {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+        }
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto w-50 mt-5">
+  <form method='POST' class="row mb-5 p-5 border rounded shadow bg-white">
+      {% csrf_token %}
+      <div class="mb-3">
+          <p class="h3">Search Records</p>
+          <hr>
+      </div>
+      <div class="mb-3">
+        <select class="form-select" aria-label="Default select example" name="name">
+            {% for name in cust_names %}
+            <option>{{ name }}</option>
+            {% endfor %}
+        </select>
+      </div>
+  <div class="mb-3 mr-5 col-auto">
+        <label for="from">From</label>
+        <input type="date" id="from" name="from_date" required>
+  </div>
+  <div class="mb-3 col-auto">
+        <label for="to">To</label>
+        <input type="date" id="to" name="to_date" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Fetch</button>
+</form>
+
+
+
+<div id="print-section">
+<div class="mb-3">
+<!--Table Below-->
+
+  {% if cust_data %}
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+      <h4>
+        <small class="text-body-secondary">Monthly bill of</small>
+        {{ selected_name }}
+      </h4>
+      {{ cust_address }}
+      <h5>
+        <small class="text-body-secondary">For the Period of</small>
+        {{ from_date }} to {{ to_date }}
+      </h5>
+    </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Meal</th>
+      <th scope="col">Extras</th>
+      <th scope="col">#Of Extras</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in cust_data %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{i.meal_date}}</td>
+      <td>{{i.meal_selected}}</td>
+      <td>{{i.extras_taken}}</td>
+      <td>{{i.extras_quantities}}</td>
+      <td>{{ i.total_price }}</td>
+    </tr>
+  {% endfor %}
+  <tr>
+    <td colspan="4"></td>
+    <td ><b>Grand Total</b></td>
+    <td><b>{{ total_price_sum }}</b></td>
+  </tr>
+  </tbody>
+</table>
+    <button type="button" class="btn btn-warning" onclick="printSection()">Print</button>
+    {% endif %}
+</div>
+
+
+</div>
+</div>
+{% endblock %}
+
+
+
+{% block script %}
+function printSection() {
+            window.print();
+        }
+{% endblock %}

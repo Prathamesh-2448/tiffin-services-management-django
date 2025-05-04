@@ -1,0 +1,262 @@
+
+header {
+  width: 100%;
+  height: 100%;
+  display:flex;
+  background:grey;
+  flex-direction:row;
+  z-index:100;
+  gap:780px;
+}
+
+.logo {
+    height:55px;
+    width: 230px;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation .content::after {
+    content: '';
+    position:absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation .content:hover::after {
+    transform: scaleX(1);
+}
+
+.navigation .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:.5s;
+}
+.navigation .button:hover {
+    background-color: #fff;
+    color: #162938;
+}
+
+
+/* Reduce padding and font size */
+.alert {
+    padding: 8px 12px !important; /* Smaller padding */
+    font-size: 14px !important;   /* Reduce text size */
+    line-height: 1.2 !important;  /* Adjust line height */
+    display: flex;
+    align-items: center;
+}
+
+/* Reduce the checkmark icon size */
+.alert svg {
+    width: 20px !important;  /* Adjust icon width */
+    height: 20px !important; /* Adjust icon height */
+}
+
+/* Reduce button close size */
+.btn-close {
+    transform: scale(0.8); /* Shrink close button */
+}
+
+/* Reduce the overall margin-bottom of the alert */
+.alert-dismissible {
+    margin-bottom: 30px;
+}
+
+
+
+
+
+
+
+
+.container_checks {
+  display: flex;
+  flex-direction: column; /* Arrange items vertically */
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center; /* Vertically center checkbox and spinbox */
+  margin-bottom: 10px; /* Add some spacing between checkbox groups */
+}
+
+.spinbox {
+  display: none; /* Initially hidden */
+  margin-left: 10px;
+  width:70px;
+}
+
+.save-button {
+    display: none;
+    margin-left: 10px;
+}
+
+/* From Uiverse.io by mobinkakei */
+.cta {
+  display: flex;
+  padding: 11px 33px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  background: #6225e6;
+  transition: 1s;
+  box-shadow: 6px 6px 0 black;
+  transform: skewX(-15deg);
+  border: none;
+  cursor: pointer;
+}
+
+.cta:focus {
+  outline: none;
+}
+
+.cta:hover {
+  transition: 0.5s;
+  box-shadow: 10px 10px 0 #fbc638;
+}
+
+.cta .second {
+  transition: 0.5s;
+  margin-right: 0px;
+}
+
+.cta:hover .second {
+  transition: 0.5s;
+  margin-right: 45px;
+}
+
+.span {
+  transform: skewX(15deg);
+}
+
+.second {
+  width: 20px;
+  margin-left: 30px;
+  position: relative;
+  top: 12%;
+}
+
+.one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+.two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.cta:hover .three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover .one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover .two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+@keyframes color_anim {
+  0% {
+    fill: white;
+  }
+
+  50% {
+    fill: #fbc638;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+
+
+/* From Uiverse.io by Gautammsharma */
+.material-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #777777;
+  cursor: pointer;
+}
+
+.material-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  border: 2px solid #454B00;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.material-checkbox input[type="checkbox"]:checked ~ .checkmark {
+  background-color: #2F3300;
+  border-color: #454B00;
+}
+
+.material-checkbox input[type="checkbox"]:checked ~ .checkmark:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 4px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.material-checkbox input[type="checkbox"]:focus ~ .checkmark {
+  box-shadow: 0 0 0 2px #dfec5065;
+}
+
+.material-checkbox:hover input[type="checkbox"] ~ .checkmark {
+  border-color: #C3CF34;
+}
+
+.material-checkbox input[type="checkbox"]:disabled ~ .checkmark {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.material-checkbox input[type="checkbox"]:disabled ~ .checkmark:hover {
+  border-color: #4d4d4d;
+}
