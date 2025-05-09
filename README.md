@@ -81,3 +81,9 @@ docker build -t tiffin-app .
 ```bash
 docker run -d -p 8000:8000 tiffin-app
 ```
+
+## 📝 License
+This project is open-source and available under the MIT License.
+
+## 🙌 Contributions
+Feel free to fork the project and submit a pull request. All contributions are welcome!
