@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-&jy7+k=pu+^(_ac1i30fav=7r)j^bjq8^5%w6=ys7ir#t8*!8w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["tiffin-service-management-production.up.railway.app", "localhost", "127.0.0.1",]
-
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0:8000",]
 
 # Application definition
 
